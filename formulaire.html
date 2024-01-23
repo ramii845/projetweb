@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Quiz Développement Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: red;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+          color :#0026ff;
+        }
+		
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz Développement Web</h1>
+    <form id="quizForm">
+        <!-- Question 1 -->
+        <label >1. Qu'est-ce que HTML?</label>
+        <input type="radio" name="q1" value="a"> a) HyperText Markup Language
+        <input type="radio" name="q1" value="b"> b) High-level Text Machine Language
+        <input type="radio" name="q1" value="c"> c) HyperTransfer Text Module Language
+
+        <!-- Question 2 -->
+         <label >2. Quelle est la signification de CSS?</label>
+        <input type="radio" name="q2" value="a"> a) Creative Style Sheets
+        <input type="radio" name="q2" value="b"> b) Cascading Style Sheets
+        <input type="radio" name="q2" value="c"> c) Computer Style Sheets 
+
+        <!-- Question 3 -->
+         <label >3. Quel langage de programmation est souvent utilisé côté serveur?</label>
+        <input type="radio" name="q3" value="a"> a) JavaScript
+        <input type="radio" name="q3" value="b"> b) PHP
+        <input type="radio" name="q3" value="c"> c) Python <br>
+
+        <!-- Question 4 -->
+		 <label >4. Quelle est la signification de l'acronyme "API"?</label>
+<input type="radio" name="q4" value="a"> a) Application Programming Interface
+<input type="radio" name="q4" value="b"> b) Advanced Programming Interface
+<input type="radio" name="q4" value="c"> c) Application Process Integration 
+
+<!-- Question 5 -->
+ <label >5. Quelle est la principale utilisation de JavaScript dans un navigateur web?</label>
+<input type="radio" name="q5" value="a"> a) Manipulation du contenu HTML/CSS
+<input type="radio" name="q5" value="b"> b) Gestion des bases de données
+<input type="radio" name="q5" value="c"> c) Conception graphique avancée  
+<!-- Question 6 -->
+ <label >6. Quel langage est souvent utilisé pour la gestion des bases de données?</label>
+<input type="radio" name="q6" value="a"> a) JavaScript
+<input type="radio" name="q6" value="b"> b) SQL
+<input type="radio" name="q6" value="c"> c) Python
+<!-- Question 7 -->
+ <label >7. Qu'est-ce que Git?</label>
+<input type="radio" name="q7" value="a"> a) Un langage de programmation
+<input type="radio" name="q7" value="b"> b) Un système de contrôle de version
+<input type="radio" name="q7" value="c"> c) Un framework JavaScript
+
+<!-- Question 8 -->
+ <label>8. Quel attribut HTML est utilisé pour lier une feuille de style externe?</label>
+<input type="radio" name="q8" value="a"> a) style
+<input type="radio" name="q8" value="b"> b) link
+<input type="radio" name="q8" value="c"> c) css
+
+<!-- Question 9 -->
+ <label >9. Quel est le rôle de la balise "head" dans un document HTML?</label>
+<input type="radio" name="q9" value="a"> a) Contient le contenu principal de la page
+<input type="radio" name="q9" value="b"> b) Définit l'en-tête de la page, y compris les métadonnées
+<input type="radio" name="q9" value="c"> c) Définit le pied de page de la page
+
+<!-- Question 10 -->
+ <label >10. Quel est l'élément HTML utilisé pour créer un lien hypertexte?</label>
+<input type="radio" name="q10" value="a"> a) link
+<input type="radio" name="q10" value="b"> b) a
+<input type="radio" name="q10" value="c"> c) href <br> <br>
+
+        <button type="button" onclick="submitQuiz()">Valider</button>
+    </form>
+
+    <div id="result" class="result"></div>
+
+    <script>
+        function submitQuiz() {
+            const form = document.getElementById('quizForm');
+            const resultContainer = document.getElementById('result');
+            const totalQuestions = 10;  
+
+            let score = 0;
+            let correctAnswers = [];
+
+        
+            const userAnswers = [
+                form.q1.value.toLowerCase(),
+                form.q2.value.toLowerCase(),
+                form.q3.value.toLowerCase(),
+				 form.q4.value.toLowerCase(),
+				 form.q5.value.toLowerCase(),
+				form.q6.value.toLowerCase(),
+                form.q7.value.toLowerCase(),
+                form.q8.value.toLowerCase(),
+				form.q9.value.toLowerCase(),
+				form.q10.value.toLowerCase()
+				
+            ];
+
+           
+            if (userAnswers[0] === 'a') {
+                score++;
+                correctAnswers.push('Question 1');
+            }
+            if (userAnswers[1] === 'b') {
+                score++;
+                correctAnswers.push('Question 2');
+            }
+            if (userAnswers[2] === 'b') {
+                score++;
+                correctAnswers.push('Question 3');
+            }
+			if (userAnswers[3] === 'a') {
+                score++;
+                correctAnswers.push('Question 4');
+            }
+			if (userAnswers[4] === 'a') {
+                score++;
+                correctAnswers.push('Question 5');
+            }
+            if (userAnswers[5] === 'b') {
+                score++;
+                correctAnswers.push('Question 6');
+            }
+			if (userAnswers[6] === 'b') {
+                score++;
+                correctAnswers.push('Question 7');
+            }
+            if (userAnswers[7] === 'b') {
+                score++;
+                correctAnswers.push('Question 8');
+            }
+            if (userAnswers[8] === 'b') {
+                score++;
+                correctAnswers.push('Question 9');
+            }
+			if (userAnswers[9] === 'b') {
+                score++;
+                correctAnswers.push('Question 10');
+            }
+			
+           
+
+            // Affichez le résultat
+           
+            resultContainer.innerHTML = `Votre score est de ${score} sur ${totalQuestions}.<br> Réponses correctes : ${correctAnswers.join(', ')}.`;
+        }
+    </script>
+</body>
+</html>
